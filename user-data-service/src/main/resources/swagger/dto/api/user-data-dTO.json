@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "userdata",
+  "description": "data",
+  "type": "object",
+  "properties": {
+    "userId": {
+      "description": "userId",
+      "$ref": "../common/longType_v01.json"
+    },
+    "firstName": {
+      "description": "firstName",
+      "$ref": "../common/simpleCodeType_v01.json"
+    },
+    "lastName": {
+      "description": "lastName",
+      "$ref": "../common/simpleCodeType_v01.json"
+    },
+    "emailAddress": {
+      "description": "emailAddress",
+      "$ref": "../common/simpleCodeType_v01.json"
+    },
+    "city": {
+      "description": "city",
+      "$ref": "../common/simpleCodeType_v01.json"
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "Number",
+	"description": "A simple number",
+	"type": "number",
+	"minimum": 0,
+    "exclusiveMinimum": true,
+    "maximum": 100000000000
+}

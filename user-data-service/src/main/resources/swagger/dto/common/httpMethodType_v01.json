@@ -1,0 +1,7 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "HTTPMethod",
+  "description": "The HTTP method code (HTTP Verb) traverse the link (GET, POST, PUT, PATCH or DELETE)",
+  "type": "string",
+  "enum": ["GET","POST","PUT","PATCH","DELETE"]
+}

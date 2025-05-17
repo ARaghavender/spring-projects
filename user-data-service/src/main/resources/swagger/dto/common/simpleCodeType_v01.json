@@ -1,0 +1,7 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "simpleCode",
+	"description": "A simple (string) code.  Can have a code list reference in meta.",
+	"type": "string",
+	"pattern": "^[a-zA-Z0-9.$-_\/]+$"
+}

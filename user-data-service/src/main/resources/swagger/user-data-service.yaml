@@ -1,0 +1,89 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Swagger User Data service
+  description: Swagger Contract Specification for User Data Service APIs
+  contact:
+    name: userDataServiceAPI
+  license:
+    name: Swagger Contract Specification for User Data Service APIs
+
+paths:
+  uds/saveUserdata:
+    post:
+      tags:
+        - User Data API
+      summary: Add User In The System
+      description: Add User
+      operationId: addUserData
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: ./dto/api/user-data-dTO.json
+      responses:
+        200:
+          description: Data saved successfully
+
+  uds/userid/{userId}:
+    get:
+      tags:
+        - User Data API
+      summary: Get User Details
+      description: Get User Details
+      operationId: getUserDetails
+      parameters:
+        - in: path
+          name: userId
+          description: userId
+          required: true
+          schema:
+            type: long
+      responses:
+        200:
+          description: User details are fetched
+          content:
+            application/json:
+              schema:
+                $ref: ./dto/api/user-data-dTO.json
+  uds/users:
+    get:
+      tags:
+        - User Data API
+      summary: Get All User Details
+      description: Get All User Details
+      operationId: getAllUserDetails
+      responses:
+        200:
+          description: All User details are fetched
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: ./dto/api/user-data-dTO.json
+
+
+  uds/userid/{userId}/update:
+    put:
+      tags:
+        - User Data API
+      summary: Update User Data
+      description: Update User Data
+      operationId: updateUserData
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: ./dto/api/user-data-dTO.json
+        required: true
+      parameters:
+        - in: path
+          name: userId
+          description: userId
+          required: true
+          schema:
+            type: long
+      responses:
+        200:
+          description: Data Updated Successfully
