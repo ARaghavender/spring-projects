@@ -1,0 +1,99 @@
+openapi: 3.0.0
+info:
+  title: First API
+  version: 1.0.0
+  description: Sample API for demonstration
+paths:
+  /first/users/{userId}:
+    get:
+      tags:
+        - User Data Api
+      summary: Get User Details
+      operationId: getUserDetails
+      parameters:
+        - in: path
+          name: userId
+          description: userId
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        200:
+          description: User details are fetched
+          content:
+            application/json:
+              schema:
+                $ref: './dto/api/first-api-dto.json'
+
+  /first/saveUserWithImage:
+    post:
+      tags:
+        - User Data Api
+      summary: Add User and Profile Image in the System
+      description: Add User with Profile Image
+      operationId: addUserWithImage
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                userId:
+                  type: integer
+                  format: int64
+                  description: User ID
+                profileImage:
+                  type: string
+                  format: binary
+                  description: Profile image file
+                userName:
+                  type: string
+                  description: User name
+                city:
+                  type: string
+                  description: City
+                zipCode:
+                  type: string
+                  description: Zip code
+                phoneNumber:
+                  type: string
+                  description: Phone number
+              required:
+                - userId
+                - profileImage
+                - userName
+                - city
+                - zipCode
+                - phoneNumber  # All fields are required
+      responses:
+        200:
+          description: User and Image saved successfully
+        400:
+          description: Invalid input or image format/size
+
+
+  /first/users/{userId}/image:
+    get:
+      tags:
+        - User Data Api
+      summary: Get User Profile Image in JPEG format
+      operationId: getUserImage
+      parameters:
+        - in: path
+          name: userId
+          description: userId
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        200:
+          description: User profile image in JPEG format
+          content:
+            image/jpeg:
+              schema:
+                type: string
+                format: binary
+        404:
+          description: User not found
